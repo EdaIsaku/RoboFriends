@@ -9,10 +9,12 @@ import { createStore, applyMiddleware } from "redux";
 
 import { createLogger } from "redux-logger";
 
-import { searchRobots } from "./reducers";
+import thunk from "redux-thunk";
+
+import rootReducer from "./rootReducer";
 
 const logger = createLogger();
-const store = createStore(searchRobots, applyMiddleware(logger));
+const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 
 ReactDOM.render(
   <React.StrictMode>
